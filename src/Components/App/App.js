@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {SearchBar} from '../SearchBar/SearchBar';
 import {SearchResults} from '../SearchResults/SearchResults';
 import {Playlist} from '../Playlist/Playlist';
@@ -10,7 +10,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             searchResults: [],
-            playlistName: ' ',
+            playlistName: 'New Playlist',
             playlistTracks: []
         };
         this.addTrack = this.addTrack.bind(this);
@@ -55,14 +55,17 @@ class App extends React.Component {
     }
 
     savePlaylist() {
-        let trackURIs = this.state.playlistTracks.map((track) => track.uri);
-        let copyPlaylistName = this.state.playlistName.slice(0);
-        Spotify.savePlaylist(copyPlaylistName, trackURIs);
-        this.setState({
-            playlistName: 'New Playlist',
-            playlistTracks: [],
-        });
-        return trackURIs;
+        let tracks = this.state.playlistTracks;
+        if (tracks.length && this.state.playlistName) {
+            let trackURIs = tracks.map((track) => {
+                return track.uri});
+            Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+                this.setState({
+                    playlistName: 'New Playlist',
+                    playlistTracks: [],
+                });
+            });
+        }
     }
 
     //    savePlaylist() {
