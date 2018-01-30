@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="628a8609-2849-4465-b0e7-de516445fc5f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Components/App/App.js" afterPath="$PROJECT_DIR$/src/Components/App/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/util/Spotify.js" afterPath="$PROJECT_DIR$/src/util/Spotify.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -338,7 +336,7 @@
       <workItem from="1517167509107" duration="31817000" />
       <workItem from="1517251689620" duration="26837000" />
       <workItem from="1517289373799" duration="4775000" />
-      <workItem from="1517341620774" duration="7004000" />
+      <workItem from="1517341620774" duration="7158000" />
     </task>
     <task id="LOCAL-00001" summary="working but broken css">
       <created>1517276251167</created>
@@ -375,11 +373,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517289223250</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="WORKS">
+      <created>1517354549308</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1517354549309</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98250000" />
+    <option name="totallyTimeSpent" value="98404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -413,7 +418,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working but broken css" />
     <MESSAGE value="working but broken save to spotify button" />
-    <option name="LAST_COMMIT_MESSAGE" value="working but broken save to spotify button" />
+    <MESSAGE value="WORKS" />
+    <option name="LAST_COMMIT_MESSAGE" value="WORKS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
