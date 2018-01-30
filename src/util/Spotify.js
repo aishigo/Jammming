@@ -3,16 +3,10 @@ var accessToken;
 //var mockSpotifyAccessReturn = 'http://localhost:3000/#access_token=BQC5IgvpgpmsO9uLp4EapzgwJXJMr-xbIBNgIUKdUSAqiDAg2LLrCVwJmSrGg2k3bdNA9yV3Hhli6zLywXG-8Z77FujlcRgR-Dzas1T5Zq_eRU7ME-X79RfxoNUYbYFtdne7Du6mNUJgxY8&token_type=Bearer&expires_in=3600';
 var mockSpotifyAccessReturn;
 const url = 'https://accounts.spotify.com/authorize';
-const clientId = 'd87cb2137c114c47861fc70866867fa6';
+const clientId = 'e68cc779805f4f3989412cab68347530';
 const responseType = 'token';
-//const redirectURI = 'http://localhost:3000/';\
-const redirectURI = 'http://aishigo-jamming.surge.sh';
-// Use this to match up urls
-var currentState = 0;
-// Use this to help determine if the url is valid
-var spotifyResponseExpireTime;
-var spotifyResponseUrl;
-var headers = {Authorization: 'Bearer ' + accessToken};
+const redirectURI = 'http://localhost:3000/';
+//const redirectURI = 'http://jamming-aishigo.surge.sh/';
 var userId;
 var playlistId;
 var expiresIn;
@@ -55,17 +49,17 @@ export const Spotify = {
         var accessToken = Spotify.getAccessToken();
         var test = `https://api.spotify.com/v1/search?type=track&q=${searchTerm}`
         console.log(test);
-        if (mockTracks) {
-            return mockTracks.tracks.items.map(track => {
-                return {
-                    id: track.id,
-                    name: track.name,
-                    artist: track.artists[0].name,
-                    album: track.album.name,
-                    uri: track.uri
-                }
-            })
-        } else {
+        // if (mockTracks) {
+        //     return mockTracks.tracks.items.map(track => {
+        //         return {
+        //             id: track.id,
+        //             name: track.name,
+        //             artist: track.artists[0].name,
+        //             album: track.album.name,
+        //             uri: track.uri
+        //         }
+        //     })
+        // } else {
 
 
             return fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
@@ -78,7 +72,7 @@ export const Spotify = {
             }, networkError => {console.log(networkError.message);
             }).then(jsonResponse => {
                 if (jsonResponse.tracks) {
-                    return jsonResponse.map(track => {
+                    return jsonResponse.tracks.items.map(track => {
                         return {
                             id: track.id,
                             name: track.name,
@@ -91,12 +85,12 @@ export const Spotify = {
                     return [];
                 }
             })
-        }
+        // }
     }
     ,
 
     savePlaylist(playlistName, arrayURIs) {
-        if (playlistName && arrayURIs && arrayURIs.length == 0) {
+        if (playlistName && arrayURIs && arrayURIs.length === 0) {
             let accessToken = Spotify.getAccessToken();
         } else {
             return
@@ -145,7 +139,8 @@ export const Spotify = {
     }
 }
 
-var mockTracks = {
+var mockTracks;
+var mockTracksxxx = {
     "tracks": {
         "href": "https://api.spotify.com/v1/search?query=kanye+west&type=track&market=US&offset=0&limit=20",
         "items": [

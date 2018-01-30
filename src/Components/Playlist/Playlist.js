@@ -8,9 +8,9 @@ export class Playlist extends React.Component {
         this.onNameChange = this.props.onNameChange.bind(this);
     }
 
-    handleNameChange(event) {
-        this.onNameChange(event.target.value);
-    }
+    handleNameChange = (event) => {
+        this.onNameChange(event.target.value)
+    };
 
     render() {
         return (
